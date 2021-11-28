@@ -1,58 +1,54 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Nav from './Nav';
+import firebase from './firebase.js'
+
 
 function App() {
 
-  const apiKey = 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg';
-  const [memes, setMemes] = useState([])
+  // [mode, setMode] = useState('browse')
+  // have two buttons: Browse Meme, Create Meme
+  // clicking on 'Create Meme' >>> setMode('create')
+  // clicking on 'Browse Meme' >>> setMode('browse')
+  // pass mode to <Nav mode={mode}>
+  // then <Nav> will know to call the <Create> or <Browse> component
 
-  useEffect(() => {
-    // After the component has been added to the DOM make our API call...
-    axios({
-      url: 'https://api.giphy.com/v1/gifs/search?',
-      method: 'GET',
-      dataResponse: "json",
-      params: {
-        api_key: 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg',
-        q: 'cats',
-        limit: '15',
-        offset: '0',
-        rating: 'g',
-        lang: 'en'
-      },
-    }).then( (response) => {
-      // THE ENTIRE OBJECT WITH METADATA
-      // setMemes(response)
-      // console.log(response.data.data)
-      setMemes(response.data.data)
-    })
-  }, []);
-  
+
+
+  const [mode, setMode] = useState('browse')
+
+  const changeMode = (event) => {
+    setMode(event.target.innerText)
+  }
 
   return (
-    <div className="App">
-      
-      <h1>memes</h1>
+    <Router>
+      <div className="App">
 
-      {
-        memes.map( (meme) => {
-          console.log(meme.images.fixed_height.url)
+        <header>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <h1>MEME IN A GIFFY LOGO</h1>
+          </Link>
+        </header>
 
-          return(
-            < img src = {meme.images.fixed_height.url} alt={meme.title} />
-          )
-        })
-      }
+        {/* // work on routing in spare time
+  // localhost:3000/browse
+  // localhost:3000/create */}
 
-    </div>
+        <button onClick={(event) => changeMode(event)}>browse</button>
+        <button onClick={(event) => changeMode(event)}>create</button>
+
+        <Nav mode={mode} />
+
+
+
+
+      </div>
+    </Router>
   );
 }
 
+
 export default App;
-
-
-
-
-// src = {`http://image.tmdb.org/t/p/w500/${individualMovie.poster_path}`}
