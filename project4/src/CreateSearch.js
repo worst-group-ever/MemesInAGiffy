@@ -8,6 +8,8 @@ function CreateSearch() {
 
   const [query, setQuery] = useState('');
 
+  const [giphyResponseData, setGiphyResponseData] = useState([]);
+
   const sendQueryToGiphy = (event) => {
     event.preventDefault();
 
@@ -24,7 +26,8 @@ function CreateSearch() {
           lang: 'en'
         },
       }).then((response) => {
-        console.log(response)
+        console.log(response.data.data)
+        setGiphyResponseData(response.data.data)
       })
   }
 
@@ -44,6 +47,8 @@ function CreateSearch() {
  */}
         <div className="seekMemes">
 
+          <h2>Searching for:{query}</h2>
+
           <form action="submit">
             <label htmlFor="templateSearch">Search for your Meme Template:</label>
             <input type="text" name="templateSearch" id="templateSearch" 
@@ -55,7 +60,21 @@ function CreateSearch() {
 
         <div className="memeResults">
           <ul>
-            <li></li>
+            {
+              giphyResponseData.map((giphyGif) => {
+
+                const gifUrl = `${giphyGif.images.original.url}`;
+                // console.log(giphyGif.images.original.url);
+                return(
+                  <>
+                  <a href="">
+                    <img src={gifUrl} alt="" />
+
+                  </a>
+                  </>
+                )
+              })
+            }
           </ul>
         </div>
     </>
