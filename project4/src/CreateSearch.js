@@ -67,7 +67,10 @@ function CreateSearch() {
                 // console.log(giphyGif.images.original.url);
                 return(
                   <>
+                  <a href="">
                     <img src={gifUrl} alt="" />
+
+                  </a>
                   </>
                 )
               })
