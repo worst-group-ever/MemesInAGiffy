@@ -5,11 +5,19 @@ function Browse() {
 
     // enter placeholder data in firebase and get the data form firebase to display in browse
 
-    // const [firebaseObj, setFirebaseObj] = useState([]);
+    const [firebaseObj, setFirebaseObj] = useState([]);
+    const [userInput, setUserInput] = useState('');
+    const handleChange = (event) => {
+        setUserInput(event.target.value)
+    }
 
-    // pull up to 20 meme entries from firebase
-    const [firebaseArray, setFirebaseArray] = useState([]);
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        const dbRef = firebase.database().ref();
+        dbRef.push(userInput);
 
+        setUserInput('');
+    }
 
     const dbRef = firebase.database().ref();
 
@@ -18,59 +26,58 @@ function Browse() {
 
         // add the event listener to watch for changes to our database 
         dbRef.on('value', (response) => {
-            // console.log(response.val());
+            const newState = [];
 
-            // variable to store new state
-            const newState = []
-            const data = response.val();
+            const data = (response.val())
+            // console.log(response.val())
 
-            // itirate through the data object
-
-            for (let property in data) {
-                // push each book name into the new array
+            for (let entry in data) {
+                // console.log(entry, firebaseObj[entry]);
+                // newState.push(firebaseObj[entry]);
                 newState.push({
-                    memeContent: data[property],
-                    memeId: property
+                    madeMeme: data[entry],
+                    memeID: entry,
                 });
+                    
             }
-            setFirebaseArray(newState);
+            setFirebaseObj(newState);
         })
     }, [])
 
 
     const [firebaseSearchQuery, setFirebaseSearchQuery] = useState('');
 
-    const submitToFirebase = () => {
-        dbRef.push(firebaseSearchQuery)
-    }
+    // const [firebaseArray, setFirebaseArray] = useState([]);
 
-    const purgeFirebase = () => {
-        dbRef.remove();
-    }
+    console.log(firebaseObj)
 
-    return (
-        <>
-            <div className="browseContainer">
-                <h1>Browse Page</h1>
-                <h2>vote for your fav meme</h2>
+    // // iterate through the data object
+    // for (let property in data) {
+    //     // push each book name into the new array
+    //     newState.push ({
+    //       bookTitle: data[property],
+    //       bookId: property
+    //     });
+    //   }
 
-                <input type="text" onChange={(event) => { setFirebaseSearchQuery(event.target.value) }} />
 
-                <button onClick={submitToFirebase}>send to firebase</button>
-
-                <button onClick={purgeFirebase}>reset ALL fb data</button>
-
-                {
-                    firebaseArray.map((entry) => {
-                        return (
-                            <h1>{`${entry.memeId}, ${entry.memeContent}`}</h1>
-                        )
-                    })
-                }
-
-            </div>
-        </>
-    )
+        return (
+            <>
+                <div className="browseContainer">
+                    <h1>Browse Page</h1>
+                    <h2>vote for your fav meme</h2>
+                    <div className="createdMemes">
+                        <ul>
+                            {firebaseObj.map((memes) =>{
+                                return (
+                                    <li key={memes.memeID}>{memes.madeMeme}</li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                </div>
+            </>
+        )
 
 }
 
