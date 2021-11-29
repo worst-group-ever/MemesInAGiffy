@@ -4,6 +4,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Nav from './Nav';
 import firebase from './firebase.js'
+import Browse from './Browse';
+import Create from './Create';
 
 
 function App() {
@@ -37,14 +39,16 @@ function App() {
   // localhost:3000/browse
   // localhost:3000/create */}
 
-        <button onClick={(event) => changeMode(event)}>browse</button>
-        <button onClick={(event) => changeMode(event)}>create</button>
+      <Routes>
+        <Route path="/browse" component={Browse} />
+        <Route path="/create" component={Create}/>
+      </Routes>
+        <Link to="/browse">
+        <button onClick={(event) => changeMode(event)}>browse</button></Link>
+        <Link to="/create"><button onClick={(event) => changeMode(event)}>create</button></Link>
 
         <Nav mode={mode} />
-
-
-
-
+        
       </div>
     </Router>
   );
