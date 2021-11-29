@@ -27,11 +27,8 @@ function Browse() {
             const newState = [];
 
             const data = (response.val())
-            // console.log(response.val())
 
             for (let entry in data) {
-                // console.log(entry, firebaseObj[entry]);
-                // newState.push(firebaseObj[entry]);
                 newState.push({
                     madeMeme: data[entry],
                     memeID: entry,
@@ -42,22 +39,7 @@ function Browse() {
         })
     }, [])
 
-
-    // pull up to 20 meme entries from firebase
-
-    // const [firebaseArray, setFirebaseArray] = useState([]);
-
-    console.log(firebaseObj)
-
-    // // iterate through the data object
-    // for (let property in data) {
-    //     // push each book name into the new array
-    //     newState.push ({
-    //       bookTitle: data[property],
-    //       bookId: property
-    //     });
-    //   }
-
+    // console.log(firebaseObj) <- leaving so we can uncomment if any issues arise
 
         return (
             <>
