@@ -1,12 +1,13 @@
-import { useState, useEffect, createElement } from 'react';
+import { useState, useEffect, createElement, } from 'react';
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link,} from 'react-router-dom';
 import Nav from './Nav';
 import firebase from './firebase.js'
 import Browse from './Browse';
 import Create from './Create';
 import CreateSearch from './CreateSearch';
+import ErrorPage from './ErrorPage';
 // import DisplayPhotos from './DisplayPhotos';
 import Footer from './Footer';
 
@@ -28,6 +29,7 @@ function App() {
     setMode(event.target.innerText)
   }
 
+
   return (
     <Router>
       <div className="App">
@@ -42,16 +44,16 @@ function App() {
       // localhost:3000/browse
       // localhost:3000/create */}
       
-            <Routes>
-              <Route path="/browse" component={Browse} />
-              <Route path="/create" component={Create}/>
-              <Route path="/create/:id" component={CreateSearch}/>
-            </Routes>
-            <Link to="/browse">
-            <button onClick={(event) => changeMode(event)}>Browse</button></Link>
+            <Link to="/browse"><button onClick={(event) => changeMode(event)}>Browse</button></Link>
             <Link to="/create"><button onClick={(event) => changeMode(event)}>Create</button></Link>
+            <Routes>
+              <Route path="/browse" element={<Browse />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/create/:id" element={<CreateSearch />}/>
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
 
-            <Nav mode={mode} />
+            {/* <Nav mode={mode} /> */}
             </header>
           </div>
   
