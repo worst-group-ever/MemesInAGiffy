@@ -7,7 +7,7 @@ import firebase from './firebase.js'
 import Browse from './Browse';
 import Create from './Create';
 import CreateSearch from './CreateSearch';
-import DisplayPhotos from './DisplayPhotos';
+// import DisplayPhotos from './DisplayPhotos';
 import Footer from './Footer';
 
 
@@ -48,8 +48,8 @@ function App() {
               <Route path="/create/:id" component={CreateSearch}/>
             </Routes>
             <Link to="/browse">
-            <button onClick={(event) => changeMode(event)}>browse</button></Link>
-            <Link to="/create"><button onClick={(event) => changeMode(event)}>create</button></Link>
+            <button onClick={(event) => changeMode(event)}>Browse</button></Link>
+            <Link to="/create"><button onClick={(event) => changeMode(event)}>Create</button></Link>
 
             <Nav mode={mode} />
             </header>

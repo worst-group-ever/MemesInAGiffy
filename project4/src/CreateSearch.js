@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
 function CreateSearch() {
@@ -33,7 +33,6 @@ function CreateSearch() {
       })
   }
 
-  
   return (
     <>
       {/* <h2>Create Your Meme</h2>
@@ -70,9 +69,9 @@ function CreateSearch() {
                 // console.log(giphyGif.images.original.url);
                 return(
                   <>
-                  <a href="" to={`/create/${gifUrl}`}>
+                  <Link to={`/create/${gifUrl}`}>
                     <img src={gifUrl} alt="" />
-                  </a>
+                  </Link>
                   </>
                 )
               })
