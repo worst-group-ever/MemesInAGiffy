@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 
 
 function CreateSearch() {
+
 
   const apiKey = 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg';
 
@@ -31,6 +33,7 @@ function CreateSearch() {
       })
   }
 
+  
   return (
     <>
       {/* <h2>Create Your Meme</h2>
@@ -67,9 +70,8 @@ function CreateSearch() {
                 // console.log(giphyGif.images.original.url);
                 return(
                   <>
-                  <a href="">
+                  <a href="" to={`/create/${gifUrl}`}>
                     <img src={gifUrl} alt="" />
-
                   </a>
                   </>
                 )
