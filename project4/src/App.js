@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 import { useState, useEffect, createElement } from 'react';
+=======
+import { useState, useEffect, createElement, } from 'react';
+>>>>>>> cb440986d578b953ab976e07c71d357677320fb6
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link,} from 'react-router-dom';
 import Nav from './Nav';
 import firebase from './firebase.js'
 import Browse from './Browse';
 import Create from './Create';
 import CreateSearch from './CreateSearch';
+<<<<<<< HEAD
+=======
+import ErrorPage from './ErrorPage';
+>>>>>>> cb440986d578b953ab976e07c71d357677320fb6
 // import DisplayPhotos from './DisplayPhotos';
 import Footer from './Footer';
 
@@ -28,6 +36,7 @@ function App() {
     setMode(event.target.innerText)
   }
 
+
   return (
     <Router>
       <div className="App">
@@ -37,6 +46,7 @@ function App() {
               <Link to="/" style={{ textDecoration: "none" }}>
                 <h1>MEME IN A GIFFY LOGO</h1>
               </Link>
+<<<<<<< HEAD
 
             {/* // work on routing in spare time
       // localhost:3000/browse
@@ -52,6 +62,23 @@ function App() {
             <Link to="/create"><button onClick={(event) => changeMode(event)}>Create</button></Link>
 
             <Nav mode={mode} />
+=======
+
+            {/* // work on routing in spare time
+      // localhost:3000/browse
+      // localhost:3000/create */}
+      
+            <Link to="/browse"><button onClick={(event) => changeMode(event)}>Browse</button></Link>
+            <Link to="/create"><button onClick={(event) => changeMode(event)}>Create</button></Link>
+            <Routes>
+              <Route path="/browse" element={<Browse />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/create/:id" element={<CreateSearch />}/>
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+
+            {/* <Nav mode={mode} /> */}
+>>>>>>> cb440986d578b953ab976e07c71d357677320fb6
             </header>
           </div>
   

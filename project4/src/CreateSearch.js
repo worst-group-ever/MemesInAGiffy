@@ -75,6 +75,7 @@ function CreateSearch() {
               giphyResponseData.map((giphyGif) => {
                 const gifUrl = `${giphyGif.images.original.url}`;
                 return(
+<<<<<<< HEAD
 
                   
                   <Link to={`/create/${gifUrl}`}>
@@ -90,10 +91,22 @@ function CreateSearch() {
 
             
 
+=======
+                  <>
+                    <Link to={`/create/${gifUrl}`}>
+                      <img 
+                        key={giphyResponseData.id}
+                        src={gifUrl} 
+                        alt="" 
+                        onClick={(event) => giveMemeTemplateProps(event)} />
+                    </Link>
+                  </>
+
+                )
+>>>>>>> cb440986d578b953ab976e07c71d357677320fb6
               })
             }
             
-
           </ul>
         </div>
     </>

@@ -41,6 +41,7 @@ function Browse() {
         })
     }, [])
 
+<<<<<<< HEAD
 
     const [firebaseSearchQuery, setFirebaseSearchQuery] = useState('');
 
@@ -57,6 +58,8 @@ function Browse() {
     //     });
     //   }
 
+=======
+>>>>>>> cb440986d578b953ab976e07c71d357677320fb6
     // console.log(firebaseObj) <- leaving so we can uncomment if any issues arise
 
         return (
