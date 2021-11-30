@@ -29,11 +29,8 @@ function Browse() {
             const newState = [];
 
             const data = (response.val())
-            // console.log(response.val())
 
             for (let entry in data) {
-                // console.log(entry, firebaseObj[entry]);
-                // newState.push(firebaseObj[entry]);
                 newState.push({
                     madeMeme: data[entry],
                     memeID: entry,
@@ -60,6 +57,7 @@ function Browse() {
     //     });
     //   }
 
+    // console.log(firebaseObj) <- leaving so we can uncomment if any issues arise
 
         return (
             <>
