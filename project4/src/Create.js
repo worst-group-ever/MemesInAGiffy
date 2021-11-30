@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Nav from './Nav';
-
 
 
 function CreateSearch() {

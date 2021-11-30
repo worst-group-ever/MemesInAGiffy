@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 // import CreateMeme from "./CreateMeme"
 import MemeTemplate from './MemeTemplate';
@@ -72,20 +75,25 @@ function CreateSearch() {
               giphyResponseData.map((giphyGif) => {
                 const gifUrl = `${giphyGif.images.original.url}`;
                 return(
-                  <>
-                    <Link to={`/create/${gifUrl}`}>
-                      <img 
-                        key={giphyResponseData.id}
-                        src={gifUrl} 
-                        alt="" 
-                        onClick={(event) => giveMemeTemplateProps(event)} />
-                    </Link>
-                  </>
 
+                  
+                  <Link to={`/create/${gifUrl}`}>
+                    <img 
+                      key={giphyResponseData.id}
+                      src={gifUrl} 
+                      alt="" 
+                      onClick={(event) => giveMemeTemplateProps(event)} />
+                  </Link>
+                  
                 )
+
+
+            
+
               })
             }
             
+
           </ul>
         </div>
     </>
