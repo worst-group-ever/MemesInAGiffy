@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import firebase from './firebase';
-
+import MemeTemplate from './MemeTemplate'
 function Browse() {
 
     // enter placeholder data in firebase and get the data form firebase to display in browse
@@ -67,6 +67,7 @@ function Browse() {
                     <div className="createdMemes">
                         <ul>
                             {firebaseObj.map((memes) =>{
+                                {console.log(memes)}
                                 return (
                                     <li key={memes.memeID}>{memes.madeMeme}</li>
                                 )

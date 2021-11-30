@@ -4,9 +4,11 @@ import { useState } from "react";
 function MemeTemplate(props) {
   const dbRef = firebase.database().ref();
 
-  const [memeCaption, setMemeCaption] = useState("");
-  const [memeTags, setMemeTags] = useState("");
-  const [gifUrl, setGifUrl] = useState('');
+  const [memeCaption, setMemeCaption] = useState(props.caption);
+  const [memeTags, setMemeTags] = useState(props.tags)
+  // const [gifUrl, setGifUrl] = useState(props.gifUrl);
+
+  // props.picked is URL; change later
 
   // url
   // caption
@@ -15,8 +17,10 @@ function MemeTemplate(props) {
 
   const saveToFirebase = (event) => {
     event.preventDefault();
-    console.log(memeCaption, memeTags, props.picked);
-    dbRef.push([memeCaption, memeTags, props.picked])
+    console.log(memeCaption, memeTags, props.gifUrl);
+
+    // caption, tags, url, vote
+    dbRef.push([memeCaption, memeTags, props.gifUrl, 0])
   };
 
   return (
@@ -24,7 +28,7 @@ function MemeTemplate(props) {
       <h2>were in meme template</h2>
 
       <div className="wrapper">
-        <img src={props.picked} alt="" />
+        <img src={props.gifUrl} alt="" />
         <form action="submit" onSubmit={(event) => saveToFirebase(event)}>
           <label htmlFor="caption">Caption:</label>
           <input

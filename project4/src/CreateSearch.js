@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 // import CreateMeme from "./CreateMeme"
 import MemeTemplate from './MemeTemplate';
 
