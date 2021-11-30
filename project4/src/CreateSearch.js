@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+// import CreateMeme from "./CreateMeme"
+import MemeTemplate from './MemeTemplate';
+
 
 
 function CreateSearch() {
@@ -33,20 +39,18 @@ function CreateSearch() {
       })
   }
 
+  const [chosenGif, setChosenGif] = useState([]);
+
+  const giveMemeTemplateProps = (event) => {
+
+    console.log(event.target.src)
+
+    setChosenGif(event.target.src)
+    
+  }
+
   return (
-    <>
-      {/* <h2>Create Your Meme</h2>
-      <div className="memeCreator">
-        <img src="" alt="" />
-        <div className="memeText">
-          <form action="submit">
-            <label htmlFor="caption">Caption:</label>
-            <input required type="text" name="memeCaption" id="memeCaption" />
-            <input required type="text" name="memeTags" id="memeTags" />
-            <button>Make Me a Meme!</button>
-            <button>Clear Text</button>
-          </form>
- */}
+    <> 
         <div className="seekMemes">
 
           <h2>Searching for:{query}</h2>
@@ -62,20 +66,34 @@ function CreateSearch() {
 
         <div className="memeResults">
           <ul>
+            
+            <MemeTemplate
+              picked={chosenGif}
+            />
+
             {
               giphyResponseData.map((giphyGif) => {
-
                 const gifUrl = `${giphyGif.images.original.url}`;
-                // console.log(giphyGif.images.original.url);
                 return(
-                  <>
+
+                  
                   <Link to={`/create/${gifUrl}`}>
-                    <img src={gifUrl} alt="" />
+                    <img 
+                      key={giphyResponseData.id}
+                      src={gifUrl} 
+                      alt="" 
+                      onClick={(event) => giveMemeTemplateProps(event)} />
                   </Link>
-                  </>
+                  
                 )
+
+
+            
+
               })
             }
+            
+
           </ul>
         </div>
     </>
@@ -83,3 +101,18 @@ function CreateSearch() {
 }
 
 export default CreateSearch;
+
+              // giphyResponseData.map((giphyGif) => {
+              //   const gifUrl = `${giphyGif.images.original.url}`;
+              //   return(
+                  
+              //       <>               
+              //         <img 
+              //         key={giphyResponseData.id}
+              //         src={gifUrl} 
+              //         alt="" 
+              //         onClick={handleClick} />
+    
+              //       </>
+              //   ) 
+              // })
