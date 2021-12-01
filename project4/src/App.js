@@ -4,7 +4,6 @@ import Browse from './Browse';
 // Duplicate that doesnt do anything
 // import Create from './Create';
 import CreateSearch from './CreateSearch';
-import ErrorPage from './ErrorPage';
 // import DisplayPhotos from './DisplayPhotos';
 import Footer from './Footer';
 
