@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Nav from './Nav';
 
 
 
-function CreateSearch() {
+function Create() {
 
   const apiKey = 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg';
 
@@ -32,7 +31,7 @@ function CreateSearch() {
 
   return (
     <>
-      <h1>Create Your Meme</h1>
+      <h2>Create Your Meme</h2>
       {/* <div className="memeCreator">
         <img src="" alt="" />
         <div className="memeText">
@@ -60,4 +59,4 @@ function CreateSearch() {
   )
 }
 
-export default CreateSearch;
+export default Create;

@@ -1,16 +1,9 @@
+function ErrorPage() {
 
-import Browse from "./Browse";
-
-import Create from "./Create";
-
-function ErrorPage(){
-    return(
-        <>
-        <h1>Ooops! Cant find 'em!</h1>
-        {/* <Browse />
-        <Create /> */}
-        </>
+    return (
+        <h1>error</h1>
     )
+
 }
 
 export default ErrorPage;
