@@ -6,18 +6,9 @@ function MemeTemplate(props) {
 
   const [memeCaption, setMemeCaption] = useState(props.caption);
   const [memeTags, setMemeTags] = useState(props.tags)
-  // const [gifUrl, setGifUrl] = useState(props.gifUrl);
-
-  // props.picked is URL; change later
-
-  // url
-  // caption
-  // tags
-  let memeData = [];
 
   const saveToFirebase = (event) => {
     event.preventDefault();
-    console.log(memeCaption, memeTags, props.gifUrl);
 
     // caption, tags, url, vote
     dbRef.push([memeCaption, memeTags, props.gifUrl, 0])
@@ -25,9 +16,13 @@ function MemeTemplate(props) {
 
   return (
     <>
-      <h2>were in meme template</h2>
+      <div className="wrapper memeTemplate">
 
-      <div className="wrapper">
+        {/* click on this button to close the meme template window */}
+        <button onClick={() => {props.closeMemeTemplate(false)}}>
+          <i class="fas fa-times fa-2x"></i>
+        </button>
+
         <img src={props.gifUrl} alt="" />
         <form action="submit" onSubmit={(event) => saveToFirebase(event)}>
           <label htmlFor="caption">Caption:</label>
@@ -41,6 +36,8 @@ function MemeTemplate(props) {
               setMemeCaption(event.target.value);
             }}
           />
+          <br />
+          <label htmlFor="caption">Tags:</label>
           <input
             required
             type="text"
@@ -51,8 +48,8 @@ function MemeTemplate(props) {
               setMemeTags(event.target.value);
             }}
           />
-          <button>Make Me a Meme!</button>
-          <button>Clear Text</button>
+          {/* <button>Make Me a Meme!</button>
+          <button>Clear Text</button> */}
 
           <button type="submit">
             Save to Firebase
