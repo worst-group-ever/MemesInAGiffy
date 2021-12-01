@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-function CreateSearch() {
+
+function Create() {
 
   const apiKey = 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg';
 
@@ -58,4 +59,4 @@ function CreateSearch() {
   )
 }
 
-export default CreateSearch;
+export default Create;

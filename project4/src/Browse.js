@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import firebase from './firebase';
-
+import MemeTemplate from './MemeTemplate'
 function Browse() {
 
     // enter placeholder data in firebase and get the data form firebase to display in browse
@@ -19,10 +19,12 @@ function Browse() {
         setUserInput('');
     }
 
+    const dbRef = firebase.database().ref();
+
     useEffect(() => {
+        // make a reference to our database
 
-        const dbRef = firebase.database().ref();
-
+        // add the event listener to watch for changes to our database 
         dbRef.on('value', (response) => {
             const newState = [];
 
@@ -39,6 +41,22 @@ function Browse() {
         })
     }, [])
 
+
+    const [firebaseSearchQuery, setFirebaseSearchQuery] = useState('');
+
+    // const [firebaseArray, setFirebaseArray] = useState([]);
+
+    console.log(firebaseObj)
+
+    // // iterate through the data object
+    // for (let property in data) {
+    //     // push each book name into the new array
+    //     newState.push ({
+    //       bookTitle: data[property],
+    //       bookId: property
+    //     });
+    //   }
+
     // console.log(firebaseObj) <- leaving so we can uncomment if any issues arise
 
         return (
@@ -49,6 +67,7 @@ function Browse() {
                     <div className="createdMemes">
                         <ul>
                             {firebaseObj.map((memes) =>{
+                                {console.log(memes)}
                                 return (
                                     <li key={memes.memeID}>{memes.madeMeme}</li>
                                 )
