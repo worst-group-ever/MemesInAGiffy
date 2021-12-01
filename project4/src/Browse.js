@@ -39,7 +39,8 @@ function Browse() {
         })
     }, [])
 
-    // console.log(firebaseObj) <- leaving so we can uncomment if any issues arise
+    console.log(firebaseObj) 
+    // <- leaving so we can uncomment if any issues arise
 
         return (
             <>
@@ -50,9 +51,23 @@ function Browse() {
                         <ul>
                             {firebaseObj.map((memes) =>{
                                 return (
-                                    <li key={memes.memeID}>{memes.madeMeme}</li>
-                                )
-                            })}
+                                    <li key={memes.memeID}>
+                                        <div className="meme-container">
+                                            <div className="internalcontainer">
+                                                <img src={memes.madeMeme[2]} alt="" className="meme"/>
+                                                <div className="content_container">
+                                                    <h2>{memes.madeMeme[0]}</h2>
+                                                    <h3>{memes.madeMeme[1]}</h3>
+                                                </div>
+                                                <div className="voter">
+                                                    <i className="far fa-thumbs-up"></i>
+                                                    <i className="far fa-thumbs-down"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    )
+                                })}
                         </ul>
                     </div>
                 </div>

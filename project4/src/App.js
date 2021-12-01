@@ -36,7 +36,7 @@ function App() {
         <div className="wrapper">
           <div className="header_content">
             <header>
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/" exact style={{ textDecoration: "none" }}>
                 <h1>MEME IN A GIFFY LOGO</h1>
               </Link>
 
@@ -46,6 +46,8 @@ function App() {
       
             <Link to="/browse"><button onClick={(event) => changeMode(event)}>Browse</button></Link>
             <Link to="/create"><button onClick={(event) => changeMode(event)}>Create</button></Link>
+            </header>
+
             <Routes>
               <Route path="/browse" element={<Browse />} />
               <Route path="/create" element={<Create />} />
@@ -53,8 +55,7 @@ function App() {
               <Route path="*" element={<ErrorPage />} />
             </Routes>
 
-            {/* <Nav mode={mode} /> */}
-            </header>
+            <Nav mode={mode} />
           </div>
   
         </div>

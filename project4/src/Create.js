@@ -32,8 +32,8 @@ function CreateSearch() {
 
   return (
     <>
-      <h2>Create Your Meme</h2>
-      <div className="memeCreator">
+      <h1>Create Your Meme</h1>
+      {/* <div className="memeCreator">
         <img src="" alt="" />
         <div className="memeText">
           <form action="submit">
@@ -55,7 +55,7 @@ function CreateSearch() {
 
 
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
