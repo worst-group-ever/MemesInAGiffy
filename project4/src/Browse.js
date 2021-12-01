@@ -7,10 +7,20 @@ function Browse() {
 
     const [firebaseObj, setFirebaseObj] = useState([]);
     const [userInput, setUserInput] = useState('');
+    const [likes, setLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
     const handleChange = (event) => {
         setUserInput(event.target.value)
     }
 
+    const handleLikes = () => {
+        setLikes(likes + 1);
+    }
+
+    const handleDislikes = () => {
+        setDislikes(dislikes + 1);
+    }
+    // Pushing new creation into Firebase/preventing page from refreshing
     const handleSubmit = (e) => {
         e.preventDefault();
         const dbRef = firebase.database().ref();
@@ -60,8 +70,11 @@ function Browse() {
                                                 <h3>{memes.madeMeme[1]}</h3>
                                             </div>
                                             <div className="voter">
-                                                <i className="far fa-thumbs-up"></i>
-                                                <i className="far fa-thumbs-down"></i>
+
+                                                
+
+                                                <i className="far fa-thumbs-up" onClick={handleLikes}>{likes}</i>
+                                                <i className="far fa-thumbs-down" onClick={handleDislikes}>{dislikes}</i>
                                             </div>
                                         </div>
                                     </div>
