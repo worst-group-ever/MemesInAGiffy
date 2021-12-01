@@ -61,7 +61,7 @@ function Browse() {
                                                 </div>
                                                 <div className="voter">
                                                     <i className="far fa-thumbs-up"></i>
-                                                    <i className="far fa-thumbs-down"></i>
+                                                    <i className="far fa-thumbs-down fa-lag"></i>
                                                 </div>
                                             </div>
                                         </div>
