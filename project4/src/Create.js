@@ -32,7 +32,7 @@ function Create() {
   return (
     <>
       <h2>Create Your Meme</h2>
-      <div className="memeCreator">
+      {/* <div className="memeCreator">
         <img src="" alt="" />
         <div className="memeText">
           <form action="submit">
@@ -54,7 +54,7 @@ function Create() {
 
 
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

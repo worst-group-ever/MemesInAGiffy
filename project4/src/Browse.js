@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import firebase from './firebase';
-import MemeTemplate from './MemeTemplate'
+
 function Browse() {
 
     // enter placeholder data in firebase and get the data form firebase to display in browse
@@ -11,7 +11,7 @@ function Browse() {
         setUserInput(event.target.value)
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         const dbRef = firebase.database().ref();
         dbRef.push(userInput);
@@ -19,12 +19,10 @@ function Browse() {
         setUserInput('');
     }
 
-    const dbRef = firebase.database().ref();
-
     useEffect(() => {
-        // make a reference to our database
 
-        // add the event listener to watch for changes to our database 
+        const dbRef = firebase.database().ref();
+
         dbRef.on('value', (response) => {
             const newState = [];
 
@@ -35,48 +33,48 @@ function Browse() {
                     madeMeme: data[entry],
                     memeID: entry,
                 });
-                    
+
             }
             setFirebaseObj(newState);
         })
     }, [])
 
-
-    const [firebaseSearchQuery, setFirebaseSearchQuery] = useState('');
-
-    // const [firebaseArray, setFirebaseArray] = useState([]);
-
     console.log(firebaseObj)
+    // <- leaving so we can uncomment if any issues arise
 
-    // // iterate through the data object
-    // for (let property in data) {
-    //     // push each book name into the new array
-    //     newState.push ({
-    //       bookTitle: data[property],
-    //       bookId: property
-    //     });
-    //   }
+    return (
+        <>
+            <div className="browseContainer">
+                <h1>Browse Page</h1>
+                <h2>vote for your fav meme</h2>
+                <div className="createdMemes">
+                    <ul>
+                        {firebaseObj.map((memes) => {
+                            return (
+                                <li key={memes.memeID}>
+                                    <div className="meme-container">
+                                        <div className="internalcontainer">
+                                            <img src={memes.madeMeme[2]} alt="" className="meme" />
+                                            <div className="content_container">
+                                                <h2>{memes.madeMeme[0]}</h2>
+                                                <h3>{memes.madeMeme[1]}</h3>
+                                            </div>
+                                            <div className="voter">
+                                                <i className="far fa-thumbs-up"></i>
+                                                <i className="far fa-thumbs-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
 
-    // console.log(firebaseObj) <- leaving so we can uncomment if any issues arise
 
-        return (
-            <>
-                <div className="browseContainer">
-                    <h1>Browse Page</h1>
-                    <h2>vote for your fav meme</h2>
-                    <div className="createdMemes">
-                        <ul>
-                            {firebaseObj.map((memes) =>{
-                                {console.log(memes)}
-                                return (
-                                    <li key={memes.memeID}>{memes.madeMeme}</li>
-                                )
-                            })}
-                        </ul>
-                    </div>
+                                </li>
+                            )
+                        })}
+                    </ul>
                 </div>
-            </>
-        )
+            </div>
+        </>
+    )
 
 }
 
