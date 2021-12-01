@@ -1,21 +1,21 @@
-import Browse from "./Browse";
-import CreateSearch from "./CreateSearch";
+// import Browse from "./Browse";
+// import CreateSearch from "./CreateSearch";
 
-function Nav(props){
+// function Nav(props){
 
-    return(
-        <>
-        <h2>we're in {props.mode} mode</h2>
-        {
+//     return(
+//         <>
+//         <h2>we're in {props.mode} mode</h2>
+//         {
 
-            props.mode === 'browse'
-            ? <Browse />
-            : <CreateSearch />
+//             props.mode === 'browse'
+//             ? <Browse />
+//             : <CreateSearch />
 
-        }
-        </>
-    )
+//         }
+//         </>
+//     )
 
-}
+// }
 
-export default Nav;
+// export default Nav;

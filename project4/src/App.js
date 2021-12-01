@@ -1,34 +1,14 @@
-import { useState, useEffect, createElement, } from 'react';
 import './App.css';
-
-import { BrowserRouter as Router, Routes, Route, Link,} from 'react-router-dom';
-import Nav from './Nav';
-import firebase from './firebase.js'
+import { BrowserRouter as Router, Routes, Route, Link, } from 'react-router-dom';
 import Browse from './Browse';
-import Create from './Create';
+// Duplicate that doesnt do anything
+// import Create from './Create';
 import CreateSearch from './CreateSearch';
-import ErrorPage from './ErrorPage';
 // import DisplayPhotos from './DisplayPhotos';
 import Footer from './Footer';
 
 
 function App() {
-
-  // [mode, setMode] = useState('browse')
-  // have two buttons: Browse Meme, Create Meme
-  // clicking on 'Create Meme' >>> setMode('create')
-  // clicking on 'Browse Meme' >>> setMode('browse')
-  // pass mode to <Nav mode={mode}>
-  // then <Nav> will know to call the <Create> or <Browse> component
-
-
-
-  const [mode, setMode] = useState('browse')
-
-  const changeMode = (event) => {
-    setMode(event.target.innerText)
-  }
-
 
   return (
     <Router>
@@ -40,23 +20,28 @@ function App() {
                 <h1>MEME IN A GIFFY LOGO</h1>
               </Link>
 
-            {/* // work on routing in spare time
-      // localhost:3000/browse
-      // localhost:3000/create */}
-      
-            <Link to="/browse"><button onClick={(event) => changeMode(event)}>Browse</button></Link>
-            <Link to="/create"><button onClick={(event) => changeMode(event)}>Create</button></Link>
-            <Routes>
-              <Route path="/browse" element={<Browse />} />
-              <Route path="/create" element={<Create />} />
-              <Route path="/create/:id" element={<CreateSearch />}/>
-              <Route path="*" element={<ErrorPage />} />
-            </Routes>
+              <Link to="/browse">
+                <button >Browse</button>
+              </Link>
 
-            {/* <Nav mode={mode} /> */}
+              <Link to="/create">
+                <button >Create</button>
+              </Link>
+
+              <Routes>
+                <Route path="/" element={<Browse />} />
+                <Route path="/browse" element={<Browse />} />
+                <Route path="/create" element={<CreateSearch />} />
+                {/* <Route path="/create/:id" element={<CreateSearch />}/> */}
+
+
+                {/* error page; will automatically render on home page; dont want */}
+                {/* <Route path="*" element={<ErrorPage />} /> */}
+              </Routes>
+
             </header>
           </div>
-  
+
         </div>
         <Footer />
       </div>
