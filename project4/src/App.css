@@ -23,8 +23,12 @@ body{
     background-image: url(./images/bodyvector.png);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100vw;
+    width: 100%;
     
+}
+ul{
+    list-style-type: none;
+    padding: 0px;
 }
 h1{
     margin: 0;
@@ -87,6 +91,35 @@ header{
     flex-wrap: wrap;
 } */
 
+.fa-thumbs-up, .fa-thumbs-down{
+    color: #F8FB91;
+    cursor: pointer;
+}
+.createdMemes{
+    padding: 30px 0;
+    margin: 50px 0;
+    background-color: burlywood;
+    border-radius: 10px;
+    /* display: flex; */
+    /* width: 100%; */
+    /* justify-content: space-around; */
+    
+}
+
+.internalcontainer{
+    background-color: darkseagreen;
+    padding: 30px;
+    margin: 10px;
+    width: calc( 50% - 10px);
+    /* width: 50%;
+    height: 50%; */
+}
+
+.meme{
+    width: 100%;
+    
+}
+
 footer{
     background-color: #589B69;
     text-align: center;
@@ -95,44 +128,12 @@ footer{
     border-radius: 15px;
     margin-top: 30px;
 }
-.fa-thumbs-up, .fa-thumbs-down{
-    color: #F8FB91;
-}
-.meme-container{
-    padding: 30px 0;
-    /* background-color: burlywood; */
-    border-radius: 10px;
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    
-    
-}
-.internalcontainerL{
-    background-color: darkseagreen;
-    padding: 30px;
-    margin: 10px;
-  
-    
-    
-}
-
-.internalcontainerR{
-    background-color: darkseagreen;
-    padding: 30px;
-    margin: 10px;
-
-
-}
-.meme{
-    width: 100%;
-    
-}
 @media screen and (max-width: 768px){
     .holdingcontainer{
         flex-direction: column;
     }
 }
+<<<<<<< Updated upstream
 
 
 
@@ -151,3 +152,5 @@ footer{
     border-radius: 5px;
     border: 2px solid black;
 }
+=======
+>>>>>>> Stashed changes
