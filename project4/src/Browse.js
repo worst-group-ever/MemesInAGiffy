@@ -13,13 +13,12 @@ function Browse() {
         setUserInput(event.target.value)
     }
 
-    const handleLikes = () => {
-        setLikes(likes + 1);
+    const thumbs = (number, e) => {
+        const dbRef = firebase.database().ref();
+        const id = (e.target.value)
+        console.log(dbRef.child().get(id))
     }
-
-    const handleDislikes = () => {
-        setDislikes(dislikes + 1);
-    }
+    
     // Pushing new creation into Firebase/preventing page from refreshing
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -45,6 +44,8 @@ function Browse() {
                 });
 
             }
+
+
             setFirebaseObj(newState);
         })
     }, [])
@@ -60,8 +61,9 @@ function Browse() {
                 <div className="createdMemes">
                     <ul>
                         {firebaseObj.map((memes) => {
+                        console.log(memes.memeID)
                             return (
-                                <li key={memes.memeID}>
+                                <li>
                                     <div className="meme-container">
                                         <div className="internalcontainer">
                                             <img src={memes.madeMeme[2]} alt="" className="meme" />
@@ -70,11 +72,8 @@ function Browse() {
                                                 <h3>{memes.madeMeme[1]}</h3>
                                             </div>
                                             <div className="voter">
-
-                                                
-
-                                                <i className="far fa-thumbs-up" onClick={handleLikes}>{likes}</i>
-                                                <i className="far fa-thumbs-down" onClick={handleDislikes}>{dislikes}</i>
+                                                <button className="far fa-thumbs-up" value={memes.memeID} onClick={(event) =>{thumbs(1, event)}}>{likes}</button>
+                                                <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) =>{thumbs(-1, event)}}>{dislikes}</button>
                                             </div>
                                         </div>
                                     </div>
