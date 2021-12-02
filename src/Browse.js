@@ -11,7 +11,7 @@ function Browse() {
 
     const thumbs = (number, currentVote, e) => {
         const id = (e.target.value)
-        const dbRef = firebase.database().ref(`${id}/3`).set(number + Number(currentVote));
+        firebase.database().ref(`${id}/3`).set(number + Number(currentVote));
     }
 
     useEffect(() => {
