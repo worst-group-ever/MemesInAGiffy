@@ -14,9 +14,9 @@ function Browse() {
     // }
 
     const thumbs = (number, e) => {
-        const dbRef = firebase.database().ref();
+        const dbRef = firebase.database().ref('-MphlfNyqIPShSuAhpse/3');
         const id = (e.target.value)
-        console.log(dbRef.child().get(id))
+        // console.log(dbRef.child().get(id))
     }
 
     
