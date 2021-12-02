@@ -6,32 +6,15 @@ function Browse() {
     // enter placeholder data in firebase and get the data form firebase to display in browse
 
     const [firebaseObj, setFirebaseObj] = useState([]);
-    // const [userInput, setUserInput] = useState('');
-    // const [likes, setLikes] = useState(0);
-    // const [dislikes, setDislikes] = useState(0);
-    // const handleChange = (event) => {
-    //     setUserInput(event.target.value)
-    // }
 
-    const thumbs = (number, e) => {
-        const dbRef = firebase.database().ref('-MphlfNyqIPShSuAhpse/3');
+    // function to update the number of up/downvotes on a meme
+
+    const thumbs = (number, currentVote, e) => {
         const id = (e.target.value)
-        // console.log(dbRef.child().get(id))
+        const dbRef = firebase.database().ref(`${id}/3`).set(number + Number(currentVote));
     }
 
-    
-    
-    // Pushing new creation into Firebase/preventing page from refreshing
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const dbRef = firebase.database().ref();
-    //     dbRef.push(userInput);
-
-    //     setUserInput('');
-    // }
-
     useEffect(() => {
-
         const dbRef = firebase.database().ref();
 
         dbRef.on('value', (response) => {
@@ -44,16 +27,12 @@ function Browse() {
                     madeMeme: data[entry],
                     memeID: entry,
                 });
-
             }
 
 
             setFirebaseObj(newState);
         })
     }, [])
-
-    console.log(firebaseObj)
-    // <- leaving so we can uncomment if any issues arise
 
     return (
         <>
@@ -63,7 +42,6 @@ function Browse() {
                 <div className="createdMemes">
                     <ul>
                         {firebaseObj.map((memes) => {
-                        console.log(memes.memeID)
                             return (
                                 <li>
                                     <div className="meme-container">
@@ -74,8 +52,9 @@ function Browse() {
                                                 <h3>{memes.madeMeme[1]}</h3>
                                             </div>
                                             <div className="voter">
-                                                <button className="far fa-thumbs-up" value={memes.memeID} onClick={(event) =>{thumbs(1, event)}}>plz work</button>
-                                                <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) =>{thumbs(-1, event)}}>plz work</button>
+                                                <button className="far fa-thumbs-up" value={memes.memeID} onClick={(event) => { thumbs(1, memes.madeMeme[3], event)}}></button>
+                                                <h3>{memes.madeMeme[3]}</h3>
+                                                <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) => { thumbs(-1, memes.madeMeme[3], event)}}></button>
                                             </div>
                                         </div>
                                     </div>
