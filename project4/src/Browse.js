@@ -18,6 +18,8 @@ function Browse() {
         const id = (e.target.value)
         console.log(dbRef.child().get(id))
     }
+
+    
     
     // Pushing new creation into Firebase/preventing page from refreshing
     const handleSubmit = (e) => {
