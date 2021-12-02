@@ -21,7 +21,7 @@ function CreateSearch() {
       dataResponse: "json",
       params: {
         api_key: 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg',
-        // q: query,
+        q: query,
         limit: '10',
         offset: '0',
         rating: 'g',
