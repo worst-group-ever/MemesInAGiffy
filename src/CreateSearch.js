@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { useState} from 'react';
+import { useState } from 'react';
+import CloseTemplate from "./CloseTemplate.js";
 
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MemeTemplate from './MemeTemplate';
@@ -35,6 +36,7 @@ function CreateSearch() {
 
   const [chosenGif, setChosenGif] = useState([]);
   const [showMemeTemplate, setShowMemeTemplate] = useState(false);
+  const [showCloseTemplate, setShowCloseTemplate] = useState(false)
 
   const makeMeme = (event) => {
 
@@ -49,6 +51,14 @@ function CreateSearch() {
           <MemeTemplate
             gifUrl={chosenGif}
             closeMemeTemplate={setShowMemeTemplate}
+            closeCloseTemplate={setShowCloseTemplate}
+          /> :
+          null
+      }
+      {
+        showCloseTemplate === true ?
+          <CloseTemplate
+            closeCloseTemplate={setShowCloseTemplate}
           /> :
           null
       }

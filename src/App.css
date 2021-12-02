@@ -140,7 +140,7 @@ footer{
 
 /* TEST MEME TEMPLATE POPUP */
 
-.memeTemplate{
+.memeTemplate, .closeTemplate{
 
     background-color: red;
     position: absolute;
