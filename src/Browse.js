@@ -6,11 +6,11 @@ function Browse() {
     // enter placeholder data in firebase and get the data form firebase to display in browse
 
     const [firebaseObj, setFirebaseObj] = useState([]);
-    const [userInput, setUserInput] = useState('');
+    // const [userInput, setUserInput] = useState('');
     // const [likes, setLikes] = useState(0);
     // const [dislikes, setDislikes] = useState(0);
     // const handleChange = (event) => {
-        // setUserInput(event.target.value)
+    //     setUserInput(event.target.value)
     // }
 
     const thumbs = (number, e) => {
@@ -74,8 +74,8 @@ function Browse() {
                                                 <h3>{memes.madeMeme[1]}</h3>
                                             </div>
                                             <div className="voter">
-                                                {/* <button className="far fa-thumbs-up" value={memes.memeID} onClick={(event) =>{thumbs(1, event)}}>{likes}</button> */}
-                                                {/* <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) =>{thumbs(-1, event)}}>{dislikes}</button> */}
+                                                <button className="far fa-thumbs-up" value={memes.memeID} onClick={(event) =>{thumbs(1, event)}}>plz work</button>
+                                                <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) =>{thumbs(-1, event)}}>plz work</button>
                                             </div>
                                         </div>
                                     </div>
