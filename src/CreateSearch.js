@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MemeTemplate from './MemeTemplate';
 
 function CreateSearch() {
 
-  const apiKey = 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg';
+  // const apiKey = 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg';
 
   const [query, setQuery] = useState('');
 
@@ -21,7 +21,7 @@ function CreateSearch() {
       dataResponse: "json",
       params: {
         api_key: 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg',
-        q: query,
+        // q: query,
         limit: '10',
         offset: '0',
         rating: 'g',
