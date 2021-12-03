@@ -1,4 +1,3 @@
-import { lowerCase } from 'lodash';
 import { useState, useEffect } from 'react';
 import firebase from './firebase';
 
