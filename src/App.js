@@ -13,10 +13,11 @@ function App() {
   return (
     <Router>
       <div className="App">
+        
         <div className="wrapper">
           <div className="header_content">
             <header>
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/" exact style={{ textDecoration: "none" }}>
                 <h1>MEME IN A GIFFY LOGO</h1>
               </Link>
 
@@ -38,12 +39,13 @@ function App() {
                 {/* error page; will automatically render on home page; dont want */}
                 {/* <Route path="*" element={<ErrorPage />} /> */}
               </Routes>
-
+              <Footer />
             </header>
+    
           </div>
 
         </div>
-        <Footer />
+        
       </div>
     </Router>
   );
