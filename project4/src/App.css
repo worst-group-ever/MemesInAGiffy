@@ -103,7 +103,7 @@ footer{
 
 .createdMemes{
     margin: 100px 0;
-    padding-top: 150px;
+    padding-top: 250px;
     border-radius: 10px;
     width: 100%;
     max-height: 100%;
@@ -114,6 +114,7 @@ footer{
     background-color: darkseagreen;
     padding: 30px;
     margin: 10px;
+    border-radius: 10px;
 }
 
 .meme{
@@ -154,11 +155,23 @@ footer{
     button{
         padding: 15px 40px;
     }
+    header{
+
+    }
     
 }
 
 @media screen and (max-width: 769px){
-   
+    h1{
+        font-size: 50px;
+    }
+    h2{
+        font-size: 25px;
+    }
+    button{
+        padding: 15px 40px;
+    }
+
 }
 
 /* Landscape phones and down */
@@ -168,7 +181,18 @@ footer{
     }
  
     .meme{
-        width: 50%;
-        object-fit: cover;
+        width: 100%;
+        object-fit: contain; 
     }
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    button{
+        padding: 10px 30px;
+    }
+
+  
 }
