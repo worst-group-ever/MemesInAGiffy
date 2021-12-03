@@ -17,24 +17,29 @@ function CreateSearch() {
   const sendQueryToGiphy = (event) => {
     event.preventDefault();
 
-    axios({
-      url: 'https://api.giphy.com/v1/gifs/search?',
-      method: 'GET',
-      dataResponse: "json",
-      params: {
-        api_key: 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg',
-        q: query,
-        limit: '10',
-        offset: '0',
-        rating: 'g',
-        lang: 'en'
-      },
-    }).then((response) => {
-      setGiphyResponseData(response.data.data);
-      if (response.data.data.length === 0) {
-        setShowErrorTemplate(true);
-      }
-    })
+    if(query.length > 30){
+      setShowErrorTemplate(true);
+      setQuery('');
+    }else{
+      axios({
+        url: 'https://api.giphy.com/v1/gifs/search?',
+        method: 'GET',
+        dataResponse: "json",
+        params: {
+          api_key: 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg',
+          q: query,
+          limit: '10',
+          offset: '0',
+          rating: 'g',
+          lang: 'en'
+        },
+      }).then((response) => {
+        setGiphyResponseData(response.data.data);
+        if (response.data.data.length === 0) {
+          setShowErrorTemplate(true);
+        }
+      })
+    }
   }
 
   const [chosenGif, setChosenGif] = useState([]);
