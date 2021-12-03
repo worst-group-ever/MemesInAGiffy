@@ -13,6 +13,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        
         <div className="wrapper">
           <div className="header_content">
             <header>
@@ -38,12 +39,13 @@ function App() {
                 {/* error page; will automatically render on home page; dont want */}
                 {/* <Route path="*" element={<ErrorPage />} /> */}
               </Routes>
-
+              <Footer />
             </header>
+    
           </div>
 
         </div>
-        <Footer />
+        
       </div>
     </Router>
   );

@@ -22,21 +22,29 @@ body{
     background-color: #EDFFF2;
     background-image: url(./images/bodyvector.png);
     background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100vh;
     
 }
+header{
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    height: 100px;
+}
+
 ul{
     list-style-type: none;
     padding: 0px;
     display: flex;
     flex-wrap: wrap;
 }
-div.App{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+
+li{
+    width: 50%;
 }
+
 
 h1{
     margin: 0;
@@ -50,15 +58,6 @@ input{
     width: 60%;
     border: none;
     border-radius: 10px ;
-}
-.buttons{
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
- 
-}
-.wrapper{
-    width: 80%;
 }
 button{
     background-color: #DAD707;
@@ -75,35 +74,22 @@ button:hover{
 img{
     width: 150px;
 }
-
-/* .meme {
-    width: 400px;
-    border: 20px solid #589B69;
-} */
-
-header{
-    height: 100vh;
-    width: 100%;
-    text-align: center;
-    padding-top: 50px;
-}
-
-/* .memesection{
-    padding: 30px 0;
-    background-color: burlywood;
-    border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-} */
-
 footer{
     background-color: #589B69;
     text-align: center;
-    color: #EDFFF2;
+    color: #F8FB91;
     padding: 30px 0;
     border-radius: 15px;
     margin-top: 30px;
-    width: 100%;
+}
+.wrapper{
+    width: 80%;
+}
+.buttons{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+ 
 }
 .fa-thumbs-up, .fa-thumbs-down{
     color: #F8FB91;
@@ -116,17 +102,12 @@ footer{
 }
 
 .createdMemes{
-    padding: 30px 0;
-    margin: 50px 0;
-    background-color: burlywood;
+    margin: 100px 0;
+    padding-top: 150px;
     border-radius: 10px;
     width: 100%;
-
-}
-li{
-    margin: 10px;
-    width: 50%;
-    
+    max-height: 100%;
+    display: flex;
 }
 
 .internalcontainer{
@@ -137,33 +118,57 @@ li{
 
 .meme{
     width: 100%;
-    height: 500px;
-    object-fit: cover;
+    height: 400px;
+    object-fit: fill;
 }
 
-footer{
-    background-color: #589B69;
-    text-align: center;
-    color: #EDFFF2;
-    padding: 30px 0;
-    border-radius: 15px;
-    margin-top: 30px;
-}
-@media screen and (max-width: 768px){
-    .createdMemes{
-        flex-direction: column;
-    }
-}
 /* TEST MEME TEMPLATE POPUP */
 
 .memeTemplate{
 
-    background-color: red;
+    background-color: #589B69;
     position: absolute;
     top: 30%;
     left: 30%;
     width: 40%;
     padding: 20px;
     border-radius: 5px;
-    border: 2px solid black;
+    border: 2px solid #EDFFF2;
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+    .createdMemes{
+        flex-direction: column;
+    }
+    li{
+        width: 100%;
+    }
+  
+    h1{
+        font-size: 50px;
+    }
+    h2{
+        font-size: 25px;
+    }
+    button{
+        padding: 15px 40px;
+    }
+    
+}
+
+@media screen and (max-width: 769px){
+   
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .createdMemes{
+        flex-direction: column;
+    }
+ 
+    .meme{
+        width: 50%;
+        object-fit: cover;
+    }
 }
