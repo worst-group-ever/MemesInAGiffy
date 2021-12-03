@@ -4,6 +4,7 @@ import CloseTemplate from "./CloseTemplate.js";
 
 // import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MemeTemplate from './MemeTemplate';
+import ErrorTemplate from './ErrorTemplate.js';
 
 function CreateSearch() {
 
@@ -11,7 +12,7 @@ function CreateSearch() {
 
   const [query, setQuery] = useState('');
 
-  const [giphyResponseData, setGiphyResponseData] = useState([]);
+  const [giphyResponseData, setGiphyResponseData] = useState(['empty']);
 
   const sendQueryToGiphy = (event) => {
     event.preventDefault();
@@ -29,14 +30,17 @@ function CreateSearch() {
         lang: 'en'
       },
     }).then((response) => {
-      console.log(response.data.data)
-      setGiphyResponseData(response.data.data)
+      setGiphyResponseData(response.data.data);
+      if (response.data.data.length === 0) {
+        setShowErrorTemplate(true);
+      }
     })
   }
 
   const [chosenGif, setChosenGif] = useState([]);
   const [showMemeTemplate, setShowMemeTemplate] = useState(false);
   const [showCloseTemplate, setShowCloseTemplate] = useState(false)
+  const [showErrorTemplate, setShowErrorTemplate] = useState(false)
 
   const makeMeme = (event) => {
 
@@ -58,13 +62,22 @@ function CreateSearch() {
       {
         showCloseTemplate === true ?
           <CloseTemplate
+            mode={'close'}
             closeCloseTemplate={setShowCloseTemplate}
           /> :
           null
       }
+      {
+        showErrorTemplate === true ?
+          // <h2>error template</h2>
+          <ErrorTemplate
+            closeErrorTemplate={setShowErrorTemplate} />
+          : null
+      }
+
       <div className="seekMemes">
 
-        <h2>Searching for:{query}</h2>
+
 
         <form action="submit">
           <label htmlFor="templateSearch">Search for your Meme Template:</label>
@@ -75,23 +88,28 @@ function CreateSearch() {
         </form>
       </div>
 
+      {
+        (giphyResponseData.length > 0 && giphyResponseData[0] !== 'empty') ?
+          <h2>click on a gif to make a meme</h2>
+          : null
+      }
       <div className="memeResults">
         <ul>
           {
-            giphyResponseData.map((giphyGif) => {
-              const gifUrl = `${giphyGif.images.original.url}`;
-              return (
-                <>
-                  {/* <Link to={`/create/${gifUrl}`}> */}
+            giphyResponseData[0] !== 'empty'
+
+              ?
+              giphyResponseData.map((giphyGif) => {
+                const gifUrl = `${giphyGif.images.original.url}`;
+                return (
                   <img
                     key={giphyResponseData.id}
                     src={gifUrl}
                     alt=""
                     onClick={(event) => makeMeme(event)} />
-                  {/* </Link> */}
-                </>
-              )
-            })
+                )
+              })
+              : null
           }
 
         </ul>

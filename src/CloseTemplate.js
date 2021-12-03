@@ -1,4 +1,4 @@
-function closeTemplate(props){
+function CloseTemplate(props){
 
     setTimeout(() => {
         props.closeCloseTemplate(false)
@@ -11,4 +11,4 @@ function closeTemplate(props){
     )
 }
 
-export default closeTemplate;
+export default CloseTemplate;
