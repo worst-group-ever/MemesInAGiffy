@@ -34,33 +34,29 @@ function Browse() {
         })
     }, [])
 
-    return (
-        <>
-            <div className="browseContainer">
-                <h1>Browse Page</h1>
-                <h2>vote for your fav meme</h2>
-                <div className="createdMemes">
-                    <ul>
-                        {firebaseObj.map((memes) => {
-                            return (
-                                <li>
-                                    <div className="meme-container">
-                                        <div className="internalcontainer">
-                                            <img src={memes.madeMeme[2]} alt="" className="meme" />
-                                            <div className="content_container">
-                                                <h2>{memes.madeMeme[0]}</h2>
-                                                <h3>{memes.madeMeme[1]}</h3>
-                                            </div>
-                                            <div className="voter">
-                                                <button className="far fa-thumbs-up" value={memes.memeID} onClick={(event) => { thumbs(1, memes.madeMeme[3], event)}}></button>
-                                                <h3>{memes.madeMeme[3]}</h3>
-                                                <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) => { thumbs(-1, memes.madeMeme[3], event)}}></button>
-                                            </div>
-                                        </div>
+return (
+    <>
+        <div className="browseContainer">
+            <h1>Browse Page</h1>
+            <h2>Vote for your favourite meme!</h2>
+            <div className="createdMemes">
+                <ul>
+                    {firebaseObj.map((memes) => {
+                        return (
+                            <li>
+                                <div className="internalContainer">
+                                    <img src={memes.madeMeme[2]} alt="" className="meme" />
+                                    <div className="contentContainer">
+                                        <h2>{memes.madeMeme[0]}</h2>
+                                         <h3>{memes.madeMeme[1]}</h3>
                                     </div>
-
-
-                                </li>
+                                    <div className="voter">
+                                        <button className="far fa-thumbs-up" value={memes.memeID} onClick={(event) => { thumbs(1, memes.madeMeme[3], event)}}></button>
+                                        <h3>{memes.madeMeme[3]}</h3>
+                                        <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) => { thumbs(-1, memes.madeMeme[3], event)}}></button>
+                                    </div>
+                                </div>
+                            </li>
                             )
                         })}
                     </ul>
