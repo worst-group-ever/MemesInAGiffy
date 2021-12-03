@@ -5,8 +5,7 @@ const Footer= ()=>{
     return(
 
         <footer>
-            <h3>Created at Juno College by WRST GROUP</h3>
-            
+            <h3>Created at Juno College by Long, Dre, Danielle, Camila</h3>
         </footer>
 
     )

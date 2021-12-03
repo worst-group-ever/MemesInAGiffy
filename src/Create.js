@@ -19,7 +19,7 @@ function Create() {
         params: {
           api_key: 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg',
           q: query,
-          limit: '5',
+          limit: '15',
           offset: '0',
           rating: 'g',
           lang: 'en'

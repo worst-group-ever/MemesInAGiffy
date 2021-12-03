@@ -17,6 +17,7 @@ function CreateSearch() {
   const sendQueryToGiphy = (event) => {
     event.preventDefault();
 
+
     if(query.length > 30){
       setShowErrorTemplate(true);
       setQuery('');
@@ -28,7 +29,7 @@ function CreateSearch() {
         params: {
           api_key: 't0JLFMhsOWU01Df287t1FzE9hcZOhFSg',
           q: query,
-          limit: '10',
+          limit: '30',
           offset: '0',
           rating: 'g',
           lang: 'en'
@@ -40,6 +41,7 @@ function CreateSearch() {
         }
       })
     }
+
   }
 
   const [chosenGif, setChosenGif] = useState([]);
@@ -83,9 +85,8 @@ function CreateSearch() {
       <div className="seekMemes">
 
 
-
-        <form action="submit">
-          <label htmlFor="templateSearch">Search for your Meme Template:</label>
+        <form className="inputBar" action="submit">
+          <label htmlFor="templateSearch">Search for your Meme Template: </label>
           <input type="text" name="templateSearch" id="templateSearch"
             onChange={(event) => { setQuery(event.target.value) }}
           />
@@ -99,24 +100,31 @@ function CreateSearch() {
           : null
       }
       <div className="memeResults">
-        <ul>
+        <ul> 
+          <div className="responseMeme">
           {
+
             giphyResponseData[0] !== 'empty'
 
               ?
               giphyResponseData.map((giphyGif) => {
                 const gifUrl = `${giphyGif.images.original.url}`;
                 return (
+                  
+                  <div className="internalResponse">
                   <img
                     key={giphyResponseData.id}
                     src={gifUrl}
                     alt=""
                     onClick={(event) => makeMeme(event)} />
+                   </div>
+
                 )
               })
               : null
-          }
 
+          }
+          </div>
         </ul>
       </div>
     </>

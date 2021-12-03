@@ -53,6 +53,7 @@ function Browse() {
         })
     }, [])
 
+
     
     return (
         <>
@@ -78,10 +79,10 @@ function Browse() {
                         {filteredMemes.map((memes) => {
                             return (
                                 <li>
-                                    <div className="meme-container">
-                                        <div className="internalcontainer">
+//                                     <div className="memeContainer">
+                                        <div className="internalContainer">
                                             <img src={memes.madeMeme[2]} alt="" className="meme" />
-                                            <div className="content_container">
+                                            <div className="contentContainer">
                                                 <h2>{memes.madeMeme[0]}</h2>
                                                 <h3>{memes.madeMeme[1]}</h3>
                                             </div>
@@ -91,8 +92,9 @@ function Browse() {
                                                 <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) => { thumbs(-1, memes.madeMeme[3], event) }}></button>
                                             </div>
                                         </div>
-                                    </div>
+//                                     </div>
                                 </li>
+
                             )
                         })}
                     </ul>
