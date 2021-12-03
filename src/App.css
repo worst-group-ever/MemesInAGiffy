@@ -206,8 +206,11 @@ footer{
 
 /* Create section - pop up - TEST MEME TEMPLATE POPUP *//* TEST MEME TEMPLATE POPUP */
 
-.memeTemplate{
+
+.memeTemplate, .closeTemplate{
+
     background-color: #589B69;
+
     position: absolute;
     top: 30%;
     left: 30%;
