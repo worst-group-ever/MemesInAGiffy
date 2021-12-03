@@ -1,10 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link, } from 'react-router-dom';
 import Browse from './Browse';
-// Duplicate that doesnt do anything
-// import Create from './Create';
 import CreateSearch from './CreateSearch';
-// import DisplayPhotos from './DisplayPhotos';
 import Footer from './Footer';
 
 
@@ -32,11 +29,6 @@ function App() {
                 <Route path="/" element={<Browse />} />
                 <Route path="/browse" element={<Browse />} />
                 <Route path="/create" element={<CreateSearch />} />
-                {/* <Route path="/create/:id" element={<CreateSearch />}/> */}
-
-
-                {/* error page; will automatically render on home page; dont want */}
-                {/* <Route path="*" element={<ErrorPage />} /> */}
               </Routes>
               <Footer />
             </header>

@@ -1,5 +1,4 @@
 import './App.css';
-// import images from './images/Logo1'
 
 const Footer= ()=>{
     return(
