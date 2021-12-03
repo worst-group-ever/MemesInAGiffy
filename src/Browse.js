@@ -51,20 +51,15 @@ function Browse() {
             setFilteredMemes(newState);
         })
     }, [])
-
-
     
     return (
         <>
             <div className="browseContainer">
                 <h1>Browse Page</h1>
-                <h2>vote for your fav meme</h2>
+                <h2>Vote for Your Fave Memes!</h2>
                 <div className="browseMemes">
-
-                    <h2>Searching for:{browseQuery}</h2>
-
                     <form action="submit">
-                        <label htmlFor="browsePageSearch">Search for your Meme Template:</label>
+                        <label htmlFor="browsePageSearch">Search our High Quality Memes:</label>
                         <input type="text" name="browsePageSearch" id="browsePageSearch"
                             onChange={(e) => setBrowseQuery(e.target.value)} value={browseQuery}
                         />
@@ -91,7 +86,7 @@ function Browse() {
                                                 <button className="far fa-thumbs-down" value={memes.memeID} onClick={(event) => { thumbs(-1, memes.madeMeme[3], event) }}></button>
                                             </div>
                                         </div>
-                                   </div>
+                                    </div>
                                 </li>
 
                             )
