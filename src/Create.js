@@ -32,29 +32,6 @@ function Create() {
   return (
     <>
       <h2>Create Your Meme</h2>
-      {/* <div className="memeCreator">
-        <img src="" alt="" />
-        <div className="memeText">
-          <form action="submit">
-            <label htmlFor="caption">Caption:</label>
-            <input required type="text" name="memeCaption" id="memeCaption" />
-            <input required type="text" name="memeTags" id="memeTags" />
-            <button>Make Me a Meme!</button>
-            <button>Clear Text</button>
-          </form>
-
-
-          <form action="submit">
-            <label htmlFor="templateSearch">Search for your Meme Template:</label>
-            <input type="text" name="templateSearch" id="templateSearch" 
-                onChange={(event) => {setQuery(event.target.value)}}
-            />
-            <button onClick={sendQueryToGiphy}>Search</button>
-          </form>
-
-
-        </div>
-      </div> */}
     </>
   )
 }
