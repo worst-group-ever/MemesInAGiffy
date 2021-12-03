@@ -6,7 +6,7 @@ function CloseTemplate(props){
 
     return(
         <div className='closeTemplate'>
-            <h2>Meme made. We're closign now</h2>
+            <h2>Meme made. We're closing now</h2>
         </div>
     )
 }
