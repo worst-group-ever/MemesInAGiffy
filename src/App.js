@@ -13,12 +13,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        
         <div className="wrapper">
           <div className="header_content">
             <header>
               <Link to="/" exact style={{ textDecoration: "none" }}>
-                <h1>MEME IN A GIFFY LOGO</h1>
+                <h1>MEME IN A GIFFY</h1>
               </Link>
 
               <Link to="/browse">
